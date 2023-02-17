@@ -51,7 +51,6 @@
   }
   interface IResponse<P = {}> {
     code: number;
-    status?: number;
     message: string;
     data: P;
   }
