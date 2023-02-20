@@ -1,11 +1,19 @@
 const Koa = require("koa");
 const router = require("./router/router");
 const { koaBody } = require("koa-body");
+const statics = require("koa-static");
+const path = require("path");
 
-var app = new Koa();
+let app = new Koa();
 
-app.use(koaBody());
+app.use(
+  koaBody({
+    multipart: true,
+  })
+);
 app.use(router.routes());
+
+app.use(statics(path.join(__dirname, "./public")));
 
 app.use(async (ctx) => {
   console.log("404 Not Found");

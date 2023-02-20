@@ -24,6 +24,12 @@ export default defineConfig({
         target: 'http://127.0.0.1:3000',
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
+      },
+      '/upload': {
+        // target: 'https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15',
+        target: 'http://127.0.0.1:3000/upload',
+        changeOrigin: true,
+        rewrite: (path: string) => path.replace(/^\/upload/, '')
       }
     }
   }
